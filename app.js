@@ -4,7 +4,13 @@ let url = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
 let userInput = document.querySelector("#user-input").value;
 
-fetch(url + "burger")
+searchBtn.addEventListener("click", () => {
+    let userInput = document.querySelector("#user-input").value;
+    if (userInput.length == 0) {
+        result.innerHTML = `<h2>Input Field Cannot Be Empty</h2>`
+    }
+    else {
+    fetch(url + userInput)
     .then((response) => response.json())
     .then((data) => {
         console.log(data);
@@ -32,5 +38,32 @@ fetch(url + "burger")
             <button id="hide-recipe">X</button>
             <pre id="instructions">${myMeal.strInstructions}</pre>
         </div>
+        <button id="show-recipe">View Recipe</button>
         `;
-    });
+        let ingredientCon = document.querySelector("#ingredient-con");
+        let parent = document.createElement("ul");
+        let recipe = document.querySelector("#recipe");
+        let hideRecipe = document.querySelector("#hide-recipe");
+        let showRecipe = document.querySelector("#show-recipe");
+
+        ingredients.forEach((i) => {
+            let child = document.createElement("li");
+            child.innerText = i;
+            parent.appendChild(child);
+            ingredientCon.appendChild(parent);
+        });
+
+        hideRecipe.addEventListener("click", () => {
+            recipe.style.display = "none";
+        });
+
+        showRecipe.addEventListener("click", () => {
+            recipe.style.display = "block";
+        });
+
+    }).catch(() => {
+        result.innerHTML = `<h2>Invalid Input</h2>`
+    })
+    }
+});
+

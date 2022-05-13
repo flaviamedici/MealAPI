@@ -40,6 +40,7 @@ body {
 .search-container button {
     font-size: 1em;
     background-color: dodgerblue;
+    color: white;
     border: none;
     font-weight: 600;
     border-radius: 0.3em;
@@ -50,6 +51,36 @@ img {
     width: 50%;
     margin: 1.8em auto 0 auto;
 }
+
+.details {
+    background-color: dodgerblue;
+    color: white;
+    position: relative;
+    margin: -4.3em 0 0;
+    text-align: center;
+    
+}
+.details h2 {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.details h4 {
+    font-size: 1em;
+    font-weight: 400;
+}
+#show-recipe {
+    font-size: 1em;
+    position: relative;
+    left: 75%;
+    padding: 0.9em 0.6em;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    top:1.5em;
+    border-radius: 0.3em;
+    font-weight: 600;
+}
 #recipe {
     position: absolute;
     background-color: lightgray;
@@ -59,6 +90,7 @@ img {
     left: 0;
     z-index: 2;
     border-radius: 0.6em;
+    display: none;
 }
 
 #recipe pre {
@@ -74,4 +106,27 @@ img {
     height: 1.8em;
     background-color: dodgerblue;
     border: none;
+    top: 1.2em;
+    left: 90%;
+    border-radius: 0.3em;
+
+}
+ul{
+    font-size: 1em;
+    position: relative;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.8em 1.1em;
+    padding: 1.2em 0 0 1.2em;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 1.8em;
+    color: #333;
+}
+@media screen and (max-width: 500px) {
+    .container {
+        font-size: 14px;
+    }
 }
